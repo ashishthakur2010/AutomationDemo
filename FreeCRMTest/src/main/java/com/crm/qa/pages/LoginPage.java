@@ -10,19 +10,22 @@ import com.crm.qa.base.TestBase;
 public class LoginPage extends TestBase{
 	
 	//Page Factory - OR:
-	@FindBy(name="username")
+	@FindBy(name="email")
 	WebElement username;
 	
 	@FindBy(name="password")
 	WebElement password;
 	
-	@FindBy(xpath="//input[@type='submit']")
+	@FindBy(xpath="//div[@class='ui fluid large blue submit button']")
+	WebElement loginSubmit;
+	
+	@FindBy(xpath="//span[contains(text(),'Log In')]")
 	WebElement loginBtn;
 	
-	@FindBy(xpath="//button[contains(text(),'Sign Up')]")
+	@FindBy(xpath="//a[@class=('btn btn-sm btn-white btn-icon btn-icon-left btn-shadow btn-border btn-rect offset-sm-top-60 offset-top-30')]")
 	WebElement signUpBtn;
 	
-	@FindBy(xpath="//img[contains(@class,'img-responsive')]")
+	@FindBy(xpath="//a[@title='free crm home'][1]")
 	WebElement crmLogo;
 	
 	//Initializing the Page Objects:
@@ -39,14 +42,16 @@ public class LoginPage extends TestBase{
 		return crmLogo.isDisplayed();
 	}
 	
-	public HomePage login(String un, String pwd){
+	public HomePage login(String un, String pwd) throws Exception{
+		loginBtn.click();
 		username.sendKeys(un);
 		password.sendKeys(pwd);
 		//loginBtn.click();
 		    	JavascriptExecutor js = (JavascriptExecutor)driver;
-		    	js.executeScript("arguments[0].click();", loginBtn);
-		    	
+		    	js.executeScript("arguments[0].click();", loginSubmit);
+		    	Thread.sleep(5000);
 		return new HomePage();
+		
 	}
 	
 }

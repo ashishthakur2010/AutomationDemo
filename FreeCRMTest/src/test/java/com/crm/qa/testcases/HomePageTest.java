@@ -27,7 +27,7 @@ public class HomePageTest extends TestBase {
 	//after each test case -- close the browser
 	
 	@BeforeMethod
-	public void setUp() {
+	public void setUp() throws Exception {
 		initialization();
 		testUtil = new TestUtil();
 		contactsPage = new ContactsPage();

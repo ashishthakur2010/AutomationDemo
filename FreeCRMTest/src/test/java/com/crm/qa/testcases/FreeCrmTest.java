@@ -20,7 +20,7 @@ public class FreeCrmTest {
 
 	@BeforeMethod
 	public void setUp() throws Exception {
-		System.setProperty("webdriver.chrome.driver", "/Users/naveenkhunteta/Downloads/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "/Users/Ashish/Downloads/chromedriver.exe");
 		driver = new ChromeDriver();
 		js = (JavascriptExecutor) driver;
 		driver.get("https://www.freecrm.com/index.html");
@@ -32,7 +32,7 @@ public class FreeCrmTest {
 		System.out.println("title is: " + title);
 		getRunTimeInfoMessage("info", title);
 
-		if (title.equals("Free CRM software in the cloud powers sales and customer serviceQQQQ")) {
+		if (title.equals("Free CRM #1 cloud software for any business large or small")) {
 			getRunTimeInfoMessage("info", "title is correct!! YAY!!!");
 			Assert.assertTrue(true);
 		} else {
@@ -54,7 +54,7 @@ public class FreeCrmTest {
 		// Use jQuery to add jquery-growl to the page
 		js.executeScript("$.getScript('https://the-internet.herokuapp.com/js/vendor/jquery.growl.js')");
 
-		// js.executeScript("$.getScript('/Users/NaveenKhunteta/Documents/workspace/Test/src/testcases/jquery.growl.js')");
+		// js.executeScript("$.getScript('/Users/Ashish/Documents/workspace/Test/src/testcases/jquery.growl.js')");
 
 		// Use jQuery to add jquery-growl styles to the page
 		js.executeScript("$('head').append('<link rel=\"stylesheet\" "
@@ -83,7 +83,7 @@ public class FreeCrmTest {
 		File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		// now copy the screenshot to desired location using copyFile //method
 		FileUtils.copyFile(src, 
-				new File("/Users/NaveenKhunteta/Documents/MyPOMFramework/PageObjectModel/screenshots/" + fileName +".png"));
+				new File("/Users/Ashish/Documents/MyPOMFramework/PageObjectModel/screenshots/" + fileName +".png"));
 
 	}
 
