@@ -40,16 +40,15 @@ public class ContactsPageTest extends TestBase{
 			
 	}
 	
-	
 	@BeforeMethod
 	public void setUp() throws Exception {
-		
 		initialization();
 		testUtil = new TestUtil();
 		contactsPage = new ContactsPage();
+		loginPage = new LoginPage();
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
-		TestUtil.runTimeInfo("error", "login successful");
-		testUtil.switchToFrame();
+		//TestUtil.runTimeInfo("error", "login successful");
+		//testUtil.switchToFrame();
 		contactsPage = homePage.clickOnContactsLink();
 	}
 	
@@ -60,13 +59,13 @@ public class ContactsPageTest extends TestBase{
 	
 	@Test(priority=2)
 	public void selectSingleContactsTest(){
-		contactsPage.selectContactsByName("test2 test2");
+		contactsPage.selectContactsByName("Test2 Test2");
 	}
 	
 	@Test(priority=3)
 	public void selectMultipleContactsTest(){
-		contactsPage.selectContactsByName("test2 test2");
-		contactsPage.selectContactsByName("ui uiii");
+		contactsPage.selectContactsByName("Test2 Test2");
+		contactsPage.selectContactsByName("Test1 Test1");
 
 	}
 	
@@ -78,10 +77,11 @@ public class ContactsPageTest extends TestBase{
 	
 	
 	@Test(priority=4, dataProvider="getCRMTestData")
-	public void validateCreateNewContact(String title, String firstName, String lastName, String company){
+	public void validateCreateNewContact(String firstName, String lastName, String company) throws Exception{
 		homePage.clickOnNewContactLink();
-		//contactsPage.createNewContact("Mr.", "Tom", "Peter", "Google");
-		contactsPage.createNewContact(title, firstName, lastName, company);
+		//contactsPage.createNewContact("Tom", "Peter", "Google");
+		contactsPage.createNewContact(firstName, lastName, company);
+		
 		
 	}
 	

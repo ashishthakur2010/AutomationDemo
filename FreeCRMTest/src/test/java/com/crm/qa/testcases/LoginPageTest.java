@@ -44,7 +44,8 @@ public class LoginPageTest extends TestBase{
 	
 	
 	@AfterMethod
-	public void tearDown(){
+	public void tearDown() throws Exception{
+		Thread.sleep(3000);
 		driver.quit();
 	}
 	

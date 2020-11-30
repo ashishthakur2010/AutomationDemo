@@ -10,21 +10,21 @@ import com.crm.qa.base.TestBase;
 
 public class HomePage extends TestBase {
 
-	@FindBy(xpath = "//td[contains(text(),'User: Naveen K')]")
+	@FindBy(xpath = "//span[contains(text(),'Ashish thakur')]")
 	@CacheLookup
 	WebElement userNameLabel;
 
-	@FindBy(xpath = "//a[contains(text(),'Contacts')]")
+	@FindBy(xpath = "//span[contains(text(),'Contacts')]")
 	WebElement contactsLink;
 	
-	@FindBy(xpath = "//a[contains(text(),'New Contact')]")
+	@FindBy(xpath = "//button[contains(text(),'New')]")
 	WebElement newContactLink;
 	
 
-	@FindBy(xpath = "//a[contains(text(),'Deals')]")
+	@FindBy(xpath = "//span[contains(text(),'Deals')]")
 	WebElement dealsLink;
 
-	@FindBy(xpath = "//a[contains(text(),'Tasks')]")
+	@FindBy(xpath = "//span[contains(text(),'Task')]")
 	WebElement tasksLink;
 
 	// Initializing the Page Objects:
@@ -57,8 +57,9 @@ public class HomePage extends TestBase {
 	}
 	
 	public void clickOnNewContactLink(){
-		Actions action = new Actions(driver);
-		action.moveToElement(contactsLink).build().perform();
+		//Actions action = new Actions(driver);
+		//action.moveToElement(contactsLink).build().perform();
+		contactsLink.click();
 		newContactLink.click();
 		
 	}
