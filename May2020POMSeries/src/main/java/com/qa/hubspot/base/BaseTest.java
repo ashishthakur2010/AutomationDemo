@@ -9,6 +9,7 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import com.qa.hubspot.pages.LoginPage;
+import com.qa.hubspot.pages.NaukriLogin;
 
 public class BaseTest {
 
@@ -16,6 +17,8 @@ public class BaseTest {
 	public Properties prop;
 	public BasePage basePage;
 	public LoginPage loginPage;
+	public NaukriLogin naukrilogin;
+	
 
 	@Parameters("browser")
 	@BeforeTest

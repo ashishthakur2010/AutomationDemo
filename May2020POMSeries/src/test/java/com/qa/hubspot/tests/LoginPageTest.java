@@ -27,24 +27,24 @@ public class LoginPageTest extends BaseTest{
 
 	@Description("verify sign up link on login page...")
 	@Severity(SeverityLevel.CRITICAL)
-	@Test(priority=1)
+	@Test(priority=2)
 	public void verifySignUpLinkTest() {
 		Assert.assertEquals(loginPage.isSignUpLinkExist(), true);
 	}
 
-	@Description("verify login page title login page...")
-	@Severity(SeverityLevel.NORMAL)
-	@Test(priority=2)
-	public void verifyLoginPageTitleTest() {
-		System.out.println("running login page title test...");
-		String title = loginPage.getLoginPageTitle();
-		System.out.println("Login page title is: " + title);
-		Assert.assertEquals(title, Constants.LOGIN_PAGE_TITLE);
-	}
+//	@Description("verify login page title login page...")
+//	@Severity(SeverityLevel.NORMAL)
+//	@Test(priority=2)
+//	public void verifyLoginPageTitleTest() {
+//		System.out.println("running login page title test...");
+//		String title = loginPage.getLoginPageTitle();
+//		System.out.println("Login page title is: " + title);
+//		Assert.assertEquals(title, Constants.LOGIN_PAGE_TITLE);
+//	}
 
 	@Description("verify user is able to login page...")
 	@Severity(SeverityLevel.BLOCKER)
-	@Test(priority=3)
+	@Test(priority=1)
 	public void loginTest() {
 		loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
 	}
